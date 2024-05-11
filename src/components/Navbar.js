@@ -1,25 +1,9 @@
 import React from "react"
 
-export default function Navbar(props) {
+export default function Navbar() {
     return (
-         <nav className={props.darkMode ? "dark" : ""}>
-            <img 
-                className="nav--logo_icon"
-                src={require("../images/react-icon-small.png")}
-                alt="react icon"
-            />
-            <h3 className="nav--logo_text">ReactFacts</h3>
-            
-            <div className="toggler">
-                <p className="toggler--light">Light</p>
-                <div 
-                    className="toggler--slider"
-                    onClick={props.toggleDarkMode}
-                >
-                    <div className="toggler--slider--circle"></div>
-                </div>
-                <p className="toggler--dark">Dark</p>
-            </div>
+        <nav>
+            <img src={require("../images/airbnb-logo.png")} className="nav--logo" />
         </nav>
     )
 }
