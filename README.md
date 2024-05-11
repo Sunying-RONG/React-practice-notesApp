@@ -1,6 +1,13 @@
 # Project description 
 
-This project is to practice React props and mapping data.
+This project is to practice React useEffect and dependencies array.
+
+useEffect can be considered as a tool that allow us to interact with outside of the React ecosystem (state, props, user interface).  
+Think useEffect as a tool to synchronize React state with outside systems like local storage, API.  
+
+useEffect takes a function as its parameter. If that function returns something, it needs to be a cleanup function. Otherwise, it should return nothing. 
+
+If make it an async function, it automatically returns a promise instead of a function or nothing. Therefore, if want to use async operations inside of useEffect, need to define the function separately inside of the callback function.
 
 ## Getting Started with Create React App
 
