@@ -49,6 +49,11 @@ export default function App() {
         // }))
     }
     
+    function deleteNote(event, noteId) {
+        event.stopPropagation() // Prevent select note when click delete icon
+        setNotes(oldNotes => oldNotes.filter(note => note.id !== noteId))
+    }
+
     function findCurrentNote() {
         return notes.find(note => {
             return note.id === currentNoteId
@@ -70,6 +75,7 @@ export default function App() {
                     currentNote={findCurrentNote()}
                     setCurrentNoteId={setCurrentNoteId}
                     newNote={createNewNote}
+                    deleteNote={deleteNote}
                 />
                 {
                     currentNoteId && 
