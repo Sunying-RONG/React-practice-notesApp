@@ -28,11 +28,25 @@ export default function App() {
     }
     
     function updateNote(text) {
-        setNotes(oldNotes => oldNotes.map(oldNote => {
-            return oldNote.id === currentNoteId
-                ? { ...oldNote, body: text }
-                : oldNote
-        }))
+        // Put edited note on top.
+        setNotes(oldNotes => {
+          const newNotes = []
+          oldNotes.forEach(note => {
+            if (note.id === currentNoteId) {
+              newNotes.unshift({...note, body: text})
+            } else {
+              newNotes.push(note)
+            }
+          });
+          return newNotes
+        })
+
+        // Following code does not rearrange array.
+        // setNotes(oldNotes => oldNotes.map(oldNote => {
+        //     return oldNote.id === currentNoteId
+        //         ? { ...oldNote, body: text }
+        //         : oldNote
+        // }))
     }
     
     function findCurrentNote() {
